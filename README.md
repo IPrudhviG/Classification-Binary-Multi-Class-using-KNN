@@ -1,4 +1,60 @@
-# Brain Tumor Classification using KNN + PCA
+# 1️⃣ Traffic Sign Classification using K-Nearest Neighbors (KNN)
+
+## Overview
+This project implements a **Traffic Sign Classification model** using the **K-Nearest Neighbors (KNN) algorithm**. The dataset used is the **German Traffic Sign Recognition Benchmark (GTSRB)**, which contains images of various traffic signs along with their class labels. The project includes:
+
+- **Feature Extraction** using **Histogram of Oriented Gradients (HOG)**
+- **Dimensionality Reduction** using **Principal Component Analysis (PCA)**
+- **Handling Imbalanced Data** using **SMOTE**
+- **Hyperparameter Tuning** using **GridSearchCV**
+- **Performance Comparison** for different values of `k`
+
+---
+
+## Dataset
+The dataset contains images of **traffic signs** and their corresponding **Class IDs**. The data is provided in two files:
+- `Train.csv`: Contains file paths and labels for training images.
+- `Test.csv`: Contains file paths for testing images.
+
+Each image belongs to one of **43 traffic sign classes**. The dataset can be found [here](https://benchmark.ini.rub.de/gtsrb_news.html).
+
+---
+
+## Project Workflow
+
+### 1️⃣ Data Preprocessing
+- **Loaded images** and applied **grayscale conversion**.
+- **Resized images** to **32x32 pixels**.
+- **Extracted HOG features** to obtain meaningful feature vectors.
+- **Standardized features** using **StandardScaler**.
+
+### 2️⃣ Dimensionality Reduction
+- Applied **PCA** to reduce feature dimensionality while retaining variance.
+
+### 3️⃣ Handling Imbalanced Data
+- Used **SMOTE (Synthetic Minority Over-sampling Technique)** to balance the dataset.
+
+### 4️⃣ Training the KNN Model
+- **GridSearchCV** was used to find the best `k` value.
+- However, after observing that the **ROC-AUC score was not optimal** for `k=3`, **manual tuning** was done by increasing `k=9`, leading to improved performance.
+
+### 5️⃣ Model Evaluation & Performance Comparison
+- **Accuracy Score**
+- **Confusion Matrix**
+- **ROC-AUC Score**
+- **Misclassification Analysis**
+
+---
+
+## Installation & Dependencies
+To run the project, install the required Python libraries:
+```bash
+pip install numpy pandas matplotlib seaborn opencv-python scikit-learn imbalanced-learn joblib
+
+
+
+
+#Brain Tumor Classification using KNN + PCA
 
 ## Overview
 This project aims to classify brain tumors using a **K-Nearest Neighbors (KNN) classifier** with **Principal Component Analysis (PCA)** for dimensionality reduction. The dataset consists of MRI brain scan features, and the model predicts whether a given scan belongs to a tumor class.
